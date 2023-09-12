@@ -31,3 +31,18 @@ binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
 
 	return (new_node);
 }
+
+/**
+ * binary_tree_delete - erases entire binary tree structure
+ * @tree: pointer to the root node of tree
+ */
+
+void binary_tree_delete(binary_tree_t *tree)
+{
+	if (tree == NULL)
+		return;
+
+	binary_tree_delete(tree->left);
+	binary_tree_delete(tree->right);
+	free(tree);
+}
