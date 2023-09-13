@@ -8,10 +8,12 @@
 
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {
-binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
+binary_tree_t *new_node;
 
 	if (parent == NULL)
 		return (NULL);
+
+	new_node = malloc(sizeof(binary_tree_t));
 
 	if (value == '\0')
 		return (NULL);
@@ -30,19 +32,4 @@ binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
 	parent->right = new_node;
 
 	return (new_node);
-}
-
-/**
- * binary_tree_delete - erases entire binary tree structure
- * @tree: pointer to the root node of tree
- */
-
-void binary_tree_delete(binary_tree_t *tree)
-{
-	if (tree == NULL)
-		return;
-
-	binary_tree_delete(tree->left);
-	binary_tree_delete(tree->right);
-	free(tree);
 }
